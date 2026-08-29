@@ -47,6 +47,11 @@
 - `GameBalanceSettings`：在 Unity Inspector 中调节 HP、速度、攻击距离等数值
 - `WeaponController` / `WeaponPickup`：装备显示、武器数值与 Boss 掉落替换
 
+## 展示
+
+<img width="1471" height="748" alt="游戏主界面展示" src="https://github.com/user-attachments/assets/a6cd59f5-f66c-48bd-a50d-e4998923ddb5" />
+<img width="1471" height="748" alt="随机地牢战斗展示" src="https://github.com/user-attachments/assets/16d03049-a0f3-493e-a670-18e31803e850" />
+
 ## 在 Unity 中调节数值
 
 点击 `Assets/Resources/Settings/GameBalanceSettings.asset`，在 Inspector 中修改玩家、敌人、Boss 和每种武器的参数。`Main` 场景在编辑状态下保持精简是正常现象：地牢、玩家和敌人会在点击 Play 后根据随机种子生成。
