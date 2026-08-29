@@ -21,6 +21,8 @@
 - 连续闯关：通关后继承当前生命、等级、经验、成长属性与武器
 - 敌人使用四方向网格 A* 寻路，并随层数和玩家等级提升生命、攻击与防御
 - 武器通过玩家子物体 `Hand Point` 挂载，攻击表现由武器挥砍完成
+- 玩家、敌人、经验球和武器掉落均由 Prefab 实例化
+- `GameManager` 已拆分为会话、实体工厂、关卡遭遇和成长四个独立系统
 
 ## 操作
 
@@ -35,6 +37,11 @@
 - `PlayerController`：玩家移动、战斗、属性成长
 - `EnemyController`：敌人有限状态机
 - `GameManager`：单局流程、刷怪、升级与结算
+- `RunSession`：随机种子、存档和楼层推进
+- `EncounterDirector`：敌人波次、经验掉落、Boss 奖励和通关条件
+- `RunProgressionSystem`：升级候选生成与属性应用
+- `RoguelikeEntityFactory`：统一从 Prefab 创建玩家、敌人和掉落物
+- `RoguelikePrefabCatalog`：ScriptableObject 形式的 Prefab 引用目录
 - `RoguelikeHUD`：中文界面
 - `RoguelikeProjectBuilder`：场景生成和自动构建
 - `GameBalanceSettings`：在 Unity Inspector 中调节 HP、速度、攻击距离等数值
@@ -44,7 +51,7 @@
 
 点击 `Assets/Resources/Settings/GameBalanceSettings.asset`，在 Inspector 中修改玩家、敌人、Boss 和每种武器的参数。`Main` 场景在编辑状态下保持精简是正常现象：地牢、玩家和敌人会在点击 Play 后根据随机种子生成。
 
-如果菜单或配置资产不存在，使用 Unity 顶部菜单 `Roguelike > 生成菜单与主场景` 重新生成。
+如果菜单、Prefab 或配置资产不存在，使用 Unity 顶部菜单 `Roguelike > 生成菜单、Prefab 与主场景` 重新生成。生成后的实体资源位于 `Assets/Prefabs`，引用目录位于 `Assets/Resources/Settings/RoguelikePrefabCatalog.asset`。
 
 ## 美术素材与署名
 
@@ -56,4 +63,4 @@
 
 完整第三方素材说明见 `THIRD_PARTY_NOTICES.md`。森林角色与 Fantasy RPG NPC 素材包本轮未接入战斗场景；NPC 代码模块已预留，但没有设计剧情。
 
-中文字体暂时使用本机 Windows 的黑体，仅用于本地开发验证。公开上传前应替换为允许再分发的开源中文字体。
+本机 Windows 黑体仅用于本地开发验证，已从公开仓库排除。克隆项目后如未配置中文字体，IMGUI 会回退到 Unity 默认字体；正式发布版本应接入允许再分发的开源中文字体。

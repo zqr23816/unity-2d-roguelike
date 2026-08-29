@@ -37,6 +37,7 @@ public sealed class PlayerController : MonoBehaviour
         body.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         spriteRenderer = GetComponent<SpriteRenderer>();
         visualAnimator = GetComponent<PixelCharacterAnimator>();
+        weaponController = GetComponent<WeaponController>();
     }
 
     public void Configure(GameBalanceSettings settings)
@@ -48,7 +49,11 @@ public sealed class PlayerController : MonoBehaviour
         BaseAttackRange = settings.playerAttackRange;
         BaseAttackCooldown = settings.playerAttackCooldown;
         invulnerabilityDuration = settings.playerInvulnerability;
-        weaponController = gameObject.AddComponent<WeaponController>();
+        if (weaponController == null)
+        {
+            Debug.LogError("Player Prefab 缺少 WeaponController，已使用兼容兜底补充组件。");
+            weaponController = gameObject.AddComponent<WeaponController>();
+        }
         weaponController.Initialize(settings, settings.initialWeapon);
     }
 

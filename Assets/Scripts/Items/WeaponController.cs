@@ -19,19 +19,27 @@ public sealed class WeaponController : MonoBehaviour
     public void Initialize(GameBalanceSettings gameSettings, WeaponId initialWeapon)
     {
         settings = gameSettings;
-
-        GameObject hand = new GameObject("Hand Point");
-        hand.transform.SetParent(transform, false);
-        BoxCollider2D box = hand.AddComponent<BoxCollider2D>();
-        box.isTrigger = true;
-        MeleeAttackBox attackBox = hand.AddComponent<MeleeAttackBox>();
-
-        GameObject visual = new GameObject("Equipped Weapon");
-        visual.transform.SetParent(hand.transform, false);
-        SpriteRenderer renderer = visual.AddComponent<SpriteRenderer>();
-
-        socket = hand.AddComponent<WeaponSocket>();
-        socket.Initialize(renderer, visual.transform, attackBox);
+        socket = GetComponentInChildren<WeaponSocket>(true);
+        if (socket == null)
+        {
+            Debug.LogWarning("Player Prefab 缺少 Hand Point，已使用兼容兜底创建。请重新运行项目生成器。", this);
+            GameObject hand = new GameObject("Hand Point");
+            hand.transform.SetParent(transform, false);
+            BoxCollider2D box = hand.AddComponent<BoxCollider2D>();
+            box.isTrigger = true;
+            MeleeAttackBox attackBox = hand.AddComponent<MeleeAttackBox>();
+            GameObject visual = new GameObject("Equipped Weapon");
+            visual.transform.SetParent(hand.transform, false);
+            SpriteRenderer renderer = visual.AddComponent<SpriteRenderer>();
+            socket = hand.AddComponent<WeaponSocket>();
+            socket.Initialize(renderer, visual.transform, attackBox);
+        }
+        else
+        {
+            MeleeAttackBox attackBox = socket.GetComponent<MeleeAttackBox>();
+            SpriteRenderer renderer = socket.GetComponentInChildren<SpriteRenderer>(true);
+            socket.Initialize(renderer, renderer != null ? renderer.transform : socket.transform, attackBox);
+        }
         Equip(initialWeapon);
     }
 

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91ae17f092ca177469e8a752d1a85ab0, type: 3}
+  m_Name: RoguelikePrefabCatalog
+  m_EditorClassIdentifier: 
+  playerPrefab: {fileID: 8707862487217024123, guid: ccb44865615692b4aa4d29ae78003b4a, type: 3}
+  enemyPrefab: {fileID: 3705951253882761886, guid: 52638538e8925884db822a7c69b84f63, type: 3}
+  experienceOrbPrefab: {fileID: 8464423595165974743, guid: 5777cbcf69dc3564e9d19440994dcd87, type: 3}
+  weaponPickupPrefab: {fileID: 6103478142313194536, guid: 38af8dbe3194a2143a371c70b45708f6, type: 3}

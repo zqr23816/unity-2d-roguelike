@@ -1,7 +1,7 @@
 using UnityEngine;
 
 /// <summary>自动吸附到玩家的经验掉落物。</summary>
-[RequireComponent(typeof(CircleCollider2D))]
+[RequireComponent(typeof(CircleCollider2D), typeof(SpriteRenderer))]
 public sealed class ExperienceOrb : MonoBehaviour
 {
     private PlayerController target;
@@ -18,6 +18,11 @@ public sealed class ExperienceOrb : MonoBehaviour
         CircleCollider2D trigger = GetComponent<CircleCollider2D>();
         trigger.isTrigger = true;
         trigger.radius = 0.45f;
+        SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+        renderer.sprite = RuntimeSpriteFactory.Square;
+        renderer.color = new Color(0.3f, 1f, 0.62f);
+        renderer.sortingOrder = 2;
+        transform.localScale = Vector3.one * 0.24f;
     }
 
     private void Update()
