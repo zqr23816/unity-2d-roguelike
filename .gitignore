@@ -1,0 +1,48 @@
+# Unity generated folders
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emoryCaptures/
+[Rr]ecordings/
+
+# IDE generated files
+.vs/
+.vscode/
+.idea/
+*.csproj
+*.sln
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Unity generated metadata and caches
+sysinfo.txt
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+crashlytics-build.properties
+
+# Local build and verification logs
+*Build.log
+BuildReport.txt
+ReconstructionValidationReport.txt
+
+# Local Windows font: not licensed for public redistribution
+Assets/Resources/Fonts/SimHei.ttf
+Assets/Resources/Fonts/SimHei.ttf.meta
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini

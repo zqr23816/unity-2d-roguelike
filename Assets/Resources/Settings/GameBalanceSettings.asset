@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9309b682f38fc544a0f9d3e9e3ca2e8, type: 3}
+  m_Name: GameBalanceSettings
+  m_EditorClassIdentifier: 
+  playerMaxHealth: 100
+  playerMoveSpeed: 5
+  playerBaseDamage: 20
+  playerAttackRange: 1.25
+  playerAttackCooldown: 0.35
+  playerInvulnerability: 0.65
+  enemyBaseHealth: 35
+  enemyHealthPerDepth: 8
+  enemyMoveSpeed: 2.1
+  enemySpeedPerDepth: 0.08
+  enemyContactDamage: 8
+  enemyDamagePerDepth: 1
+  enemyAttackRange: 1.15
+  enemyChaseRange: 8
+  enemyAttackCooldown: 0.9
+  bossHealthMultiplier: 4
+  bossDamageMultiplier: 1.6
+  bossScale: 1.35
+  initialWeapon: 0
+  bossDropPool: 01000000020000000300000004000000
+  weapons:
+  - id: 0
+    displayName: "\u5288\u5200"
+    resourcePath: Art/0x72/DungeonTilesetI/Weapons/weapon_chopper
+    damageBonus: 4
+    rangeMultiplier: 1
+    cooldownMultiplier: 1
+  - id: 1
+    displayName: "\u94A2\u5251"
+    resourcePath: Art/0x72/DungeonTilesetI/Weapons/weapon_sword_steel
+    damageBonus: 10
+    rangeMultiplier: 1.12
+    cooldownMultiplier: 0.92
+  - id: 2
+    displayName: "\u9EC4\u91D1\u5251"
+    resourcePath: Art/0x72/DungeonTilesetI/Weapons/weapon_sword_golden
+    damageBonus: 16
+    rangeMultiplier: 1.08
+    cooldownMultiplier: 1.05
+  - id: 3
+    displayName: "\u6218\u9524"
+    resourcePath: Art/0x72/DungeonTilesetI/Weapons/weapon_hammer
+    damageBonus: 22
+    rangeMultiplier: 1.2
+    cooldownMultiplier: 1.3
+  - id: 4
+    displayName: "\u94F6\u8272\u6B66\u58EB\u5200"
+    resourcePath: Art/0x72/DungeonTilesetI/Weapons/weapon_katana_silver
+    damageBonus: 12
+    rangeMultiplier: 1.28
+    cooldownMultiplier: 0.8
