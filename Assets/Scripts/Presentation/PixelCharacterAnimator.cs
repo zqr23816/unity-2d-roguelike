@@ -13,8 +13,8 @@ public sealed class PixelCharacterAnimator : MonoBehaviour
     }
 
     private SpriteRenderer spriteRenderer;
-    private Sprite[] idleFrames;
-    private Sprite[] runFrames;
+    private Sprite[] idleFrames = new Sprite[0];
+    private Sprite[] runFrames = new Sprite[0];
     private Sprite hitFrame;
     private bool moving;
     private float hitUntil;
@@ -62,6 +62,10 @@ public sealed class PixelCharacterAnimator : MonoBehaviour
         idleFrames = LoadSequence(root + "/" + idle, 4);
         runFrames = LoadSequence(root + "/" + run, 4);
         hitFrame = string.IsNullOrEmpty(hit) ? null : Resources.Load<Sprite>(root + "/" + hit);
+        if (idleFrames.Length == 0)
+        {
+            Debug.LogError("角色待机动画加载失败：" + root + "/" + idle, this);
+        }
         if (idleFrames.Length > 0)
         {
             spriteRenderer.sprite = idleFrames[0];

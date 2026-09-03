@@ -18,6 +18,7 @@ public sealed class RoguelikeEntityFactory
     {
         GameObject owner = Object.Instantiate(catalog.PlayerPrefab, position, Quaternion.identity);
         owner.name = "Player";
+        Require<PixelCharacterAnimator>(owner).Configure(PixelCharacterAnimator.CharacterKind.KnightFemale);
         PlayerController controller = Require<PlayerController>(owner);
         controller.Configure(settings);
         return controller;
